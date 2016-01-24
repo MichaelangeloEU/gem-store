@@ -2,10 +2,10 @@
 
 (function() {
     var app = angular.module('store-directives', []);
-    app.directive("productDescription", function() {
+    app.directive("productDescriptions", function() {
         return {
             restrict: 'E',
-            templateUrl: "product-description.html"
+            templateUrl: "product-descriptions.html"
         };
     });
 
