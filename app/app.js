@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-    var app = angular.module('gemStore', []);
+    var app = angular.module('gemStore', ['store-directives']);
 
     app.controller('StoreController', function() {
         this.products = gems;
@@ -16,62 +16,6 @@
             this.review = {};
         };
 
-    });
-
-    app.directive("productGallery", function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'product-gallery.html',
-            controllerAs: 'gallery',
-            controller: function() {
-                this.current = 0;
-                this.setCurrent = function(imageNumber){
-                    this.current = imageNumber || 0;
-                };
-            }
-        };
-    });
-
-    app.directive("productTabs", function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'product-tabs.html',
-            controllerAs: 'tab',
-            controller: function() {
-                this.tab = 1;
-
-                this.isSet = function(checkTab) {
-                    return this.tab === checkTab;
-                };
-
-                this.setTab = function(setTab) {
-                    this.tab = setTab;
-                };
-            }
-        };
-    });
-
-    // Directs, 'E' stands for element.
-    app.directive("productDescriptions", function() {
-        return {
-            restrict: 'E',
-            templateUrl: "product-descriptions.html"
-        };
-    });
-
-    app.directive("productReviews", function() {
-        return {
-            restrict: 'E',
-            templateUrl: "product-reviews.html"
-        };
-    });
-
-
-    app.directive("productSpecs", function() {
-        return {
-            restrict: 'A',
-            templateUrl: "product-specs.html"
-        };
     });
 
     var gems = [
