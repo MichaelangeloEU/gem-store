@@ -3,13 +3,6 @@
 (function() {
     var app = angular.module('gemStore', []);
 
-    app.controller('GalleryController', function(){
-        this.current = 0;
-        this.setCurrent = function(imageNumber){
-            this.current = imageNumber || 0;
-        };
-    });
-
     app.controller('StoreController', function() {
         this.products = gems;
     });
@@ -23,6 +16,20 @@
             this.review = {};
         };
 
+    });
+
+    app.directive("productGallery", function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'product-gallery.html',
+            controllerAs: 'gallery',
+            controller: function() {
+                this.current = 0;
+                this.setCurrent = function(imageNumber){
+                    this.current = imageNumber || 0;
+                };
+            }
+        };
     });
 
     app.directive("productTabs", function() {
